@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dodaj nową roślinę</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" *ngIf="!isLoading">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Nazwa</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Opis</ion-label>
+            <ion-input type="text" autocorrect formControlName="description"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating"> Wybierz kategorię</ion-label>
+            <ion-select okText="Okej" cancelText="Odrzuć" formControlName="category">
+              <ion-select-option value="{{ category.id }}" *ngFor="let category of categories">{{ category.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Nasłoneczenie</ion-label>
+            <ion-input type="number" min="1" max="3" formControlName="insolation"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Wilgotność</ion-label>
+            <ion-input type="number" min="1" max="3" formControlName="humidity"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Temperatura</ion-label>
+            <ion-input type="number" min="1" max="3" formControlName="temperature"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Trudność hodowli</ion-label>
+            <ion-input type="number" min="1" max="3" formControlName="difficulty"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      
+        <ion-button expand="block" (click)="onAddPlant()" [disabled]="!form.valid">Dodaj</ion-button>
+     
+    </ion-grid>
+  </form>
+</ion-content>

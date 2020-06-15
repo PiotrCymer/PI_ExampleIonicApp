@@ -1,0 +1,11 @@
+<ion-item (click)="showDetails(plant.id)">
+  <ion-thumbnail slot="start">
+    <img [src]="plant.img | repairImg" />
+  </ion-thumbnail>
+  <ion-label>
+    <h1 (click)="onTitleClick()">{{ plant.name }}</h1>
+    <div class="offer-details">
+      <ion-text color="tertiary" class="space-left">Kategoria: {{ plant.category_name }}</ion-text>
+    </div>
+  </ion-label>
+</ion-item>

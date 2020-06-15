@@ -1,0 +1,7 @@
+{
+  "name": "plant-world",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
